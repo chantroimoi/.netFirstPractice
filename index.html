@@ -1,0 +1,55 @@
+$(function()
+  {var currentPos=0;
+   var direction=0;//direction 0 means traveling to left, 1 means right
+     $("#black").click(function(){
+         if(currentPos >-500 && direction==0){
+             $("#container").animate({left: "-=200"},'slow');
+             currentPos-=200;
+             if(currentPos<=-500){
+                 direction=1;
+                 return;
+             }
+            // alert($("#container").css("left"));
+                    }
+         if (currentPos<0 && direction==1){
+             $("#container").animate({left: "+=200"},'slow');
+             currentPos+=200;
+             if(currentPos==0){
+                 direction=0;
+         }
+       
+         }  });
+   var original= true;
+   $("#red").click(function(){
+       if (original){
+           $("#red").animate({top:'300'},"slow").css('z-index',8);
+        $("#violet").animate({top:'-1200'},"slow").css('z-index',0);
+           original=false;
+//           return;
+       }
+       else{
+            $("#red").animate({top:'0'},"slow").css('z-index',0);
+        $("#violet").animate({top:'-900'},"slow").css('z-index',8);
+           original= true;
+//           return;
+           
+       }
+   });
+ 
+   $("#violet").click(function(){
+       if (original){
+           $("#red").animate({top:'300'},"slow").css('z-index',8);
+        $("#violet").animate({top:'-1200'},"slow").css('z-index',0);
+           original=false;
+//           return;
+       }
+       else{
+            $("#red").animate({top:'0'},"slow").css('z-index',0);
+        $("#violet").animate({top:'-900'},"slow").css('z-index',8);
+           original= true;
+//           return;
+           
+       }
+   });
+    
+})
